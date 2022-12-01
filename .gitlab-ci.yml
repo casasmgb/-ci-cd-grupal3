@@ -24,9 +24,9 @@ build:
     - docker push $CI_REGISTRY_IMAGE:$VERSION
     - docker push $CI_REGISTRY_IMAGE:latest
 
-deploy-stage:
-  stage: deploy-stage
-  image: alpine:latest
+# deploy-stage:
+#   stage: deploy-stage
+#   image: alpine:latest
   # script:
   #   - chmod og= $STAGE_ID_RSA
   #   - apk update && apk add openssh-client
