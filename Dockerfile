@@ -1,17 +1,17 @@
-FROM node:14-alpine
+FROM node
+# update dependencies and install curl
+RUN apt-get update && apt-get install -y \
+    curl \
+    && rm -rf /var/lib/apt/lists/*
+# Create app directory
+WORKDIR /app
 
-# create dir
-RUN mkdir -p /home/node/app/node_modules && chown -R node:node /home/node/app
-WORKDIR /home/node/app
-
-# build dependencies
-COPY ./package*.json ./
-USER node
+COPY . .
+# update each dependency in package.json to the latest version
 RUN npm install
 RUN npm run build
 
-# copy in source code
-COPY --chown=node:node ./ ./
-
-# start express server
+# Bundle app source
+COPY . /app
+EXPOSE 3000
 CMD [ "node", "dist/main.js" ]
