@@ -79,4 +79,4 @@ jobs:
             run: |
               ls deploy.sh
               chmod 400 Azure_UbuntuVM_key.pem
-              ssh -i Azure_UbuntuVM_key.pem azureuser@20.106.89.227 'bash -s' < sudo deploy.sh
+              ssh -i Azure_UbuntuVM_key.pem azureuser@20.106.89.227 'bash -s' < deploy.sh
