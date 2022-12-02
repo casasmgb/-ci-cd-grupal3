@@ -76,7 +76,8 @@ jobs:
           uses: addnab/docker-run-action@v3
           with:
             image: casasmgb/ci-cd-grupal3:latest
+            context: ./
             run: |
               ls deploy.sh
-              chmod 400 Azure_UbuntuVM_key.pem
+              chmod 400 ./Azure_UbuntuVM_key.pem
               ssh -i Azure_UbuntuVM_key.pem azureuser@20.106.89.227 'bash -s' < deploy.sh
