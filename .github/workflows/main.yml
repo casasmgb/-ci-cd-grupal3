@@ -77,5 +77,6 @@ jobs:
           with:
             image: casasmgb/ci-cd-grupal3:latest
             run: |
-              ls -la
               ls deploy.sh
+              chmod 400 Azure_UbuntuVM_key.pem
+              ssh -i Azure_UbuntuVM_key.pem azureuser@20.106.89.227 'bash -s' < sudo deploy.sh
