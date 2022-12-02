@@ -49,6 +49,10 @@ jobs:
       needs: [build_test]
 
       steps:
+        - uses: trstringer/manual-approval@v1
+          with:
+            secret: ${{ github.TOKEN }}
+            approvers: casasmgb
         - name: checkout repo
           uses: actions/checkout@v2
 
