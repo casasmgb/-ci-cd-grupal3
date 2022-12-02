@@ -15,25 +15,21 @@ fi
 
 { # try
   echo " *** Erase current deployed version"
-  sudo docker stop ci-cd-grupal3-prod ci-cd-grupal3-preprod 
-  sudo docker container rm ci-cd-grupal3-prod ci-cd-grupal3-preprod
+  sudo docker stop ci-cd-grupal3-prod
+  sudo docker container rm ci-cd-grupal3-prod
   echo " *** Getting last version of deployed project"
   sudo docker pull casasmgb/ci-cd-grupal3:latest 
   echo " *** Started the images for prod and preprod"
   sudo docker run --name ci-cd-grupal3-prod -it -d -p 3001:3000 casasmgb/ci-cd-grupal3:latest 
-  sudo docker run --name ci-cd-grupal3-preprod -it -d -p 3002:3000 casasmgb/ci-cd-grupal3:latest 
 
 } || { # catch
   echo " *** Erasen container because fauled process"
-  sudo docker stop ci-cd-grupal3-prod ci-cd-grupal3-preprod 
-  sudo docker container rm ci-cd-grupal3-prod ci-cd-grupal3-preprod
+  sudo docker stop ci-cd-grupal3-prod
+  sudo docker container rm ci-cd-grupal3-prod
 }
 
 echo " *** Verify services for production are correct running"
 curl http://localhost:3001
-echo "DONE...!"
-echo " *** Verify services for pre production are correct running"
-curl http://localhost:3002
 echo "DONE...!"
 
 echo "INFO: Successfully verified sudo docker installation!"
