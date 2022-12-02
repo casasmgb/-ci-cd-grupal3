@@ -19,7 +19,7 @@ fi
   sudo docker container rm ci-cd-grupal3-prod
   echo " *** Getting last version of deployed project"
   sudo docker pull casasmgb/ci-cd-grupal3:latest 
-  echo " *** Started the images for prod and preprod"
+  echo " *** Started the images for prod"
   sudo docker run --name ci-cd-grupal3-prod -it -d -p 3001:3000 casasmgb/ci-cd-grupal3:latest 
 
 } || { # catch
