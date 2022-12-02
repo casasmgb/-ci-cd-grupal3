@@ -10,7 +10,7 @@ echo 'ESTOY en el server'>> /home/azureuser/file
 # Verify that we can at least get version output
 if ! sudo docker --version; then
 	echo "ERROR: Did sudo Docker get installed?"
-  install-sudo docker.sh
+  sudo install-docker.sh
 fi
 
 { # try
