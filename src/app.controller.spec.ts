@@ -16,7 +16,7 @@ describe('AppController', () => {
 
   describe('root', () => {
     it('should return "Hello World!"', () => {
-      expect(appController.getHello()).toBe('Hello World Group 3! From PROD');
+      expect(appController.getHello()).toBe('Hello World Group 3! From PROD - Deployed');
     });
   });
 });
